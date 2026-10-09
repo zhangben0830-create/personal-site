@@ -1119,3 +1119,7 @@ Expected: 日志含全部任务提交，工作区干净（`git status` 无未提
 
 - 头脑风暴可视化服务（端口 64546）30 分钟无活动自动退出，无需手动清理
 - 部署上线（GitHub Pages / 域名 / HTTPS）为后续独立任务，不在本计划范围
+
+## 变更记录（执行中修订）
+
+- **2026-10-10 · Task 2 修订（commit `b93ea6f`）**：质量审查发现计划缺陷——`const SITE_DATA` 顶层声明不挂 `window`，与 Task 3 script.js 的 `window.SITE_DATA || {}` 读取方式构成契约断裂（落地即整站静默空白）。修订：data.js 末尾追加 `window.SITE_DATA = SITE_DATA;` 显式挂载，头部注释补充字段约定（status 枚举 / level 0-10 / icon 类名来源 / stats 与 results 同源）与自检指引。本文件 Task 2 的 Step 1 代码块以 `b93ea6f` 版实际文件为准（数据主体逐字不变）。
