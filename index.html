@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>陈思远 · 高级产品经理 | Personal Site</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ========== 背景数据流点阵 ========== -->
+<canvas id="bg-canvas"></canvas>
+<div class="bg-glow bg-glow-1"></div>
+<div class="bg-glow bg-glow-2"></div>
+
+<!-- ========== 固定顶部导航 ========== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="brand">
+      <span class="brand-dot"></span>
+      <span>CHEN · SIYUAN</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home" class="nav-link active" data-nav="0">首页</a></li>
+      <li><a href="#about" class="nav-link" data-nav="1">关于我</a></li>
+      <li><a href="#skills" class="nav-link" data-nav="2">技能</a></li>
+      <li><a href="#projects" class="nav-link" data-nav="3">作品</a></li>
+      <li><a href="#blog" class="nav-link" data-nav="4">博客</a></li>
+      <li><a href="#contact" class="nav-link" data-nav="5">联系</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">
+      <i class="fa-solid fa-paper-plane"></i>
+      <span>联系我</span>
+    </a>
+  </div>
+</nav>
+
+<!-- ========== 1. Hero ========== -->
+<section class="section hero" id="home" data-section="0">
+  <div class="container hero-inner">
+    <div class="hero-copy reveal">
+      <p class="hero-kicker"><span class="kicker-bar"></span> 高级产品经理 · 8年经验</p>
+      <h1 class="hero-title">
+        你好，我是<span class="accent">陈思远</span><br/>
+        <span class="typer" id="typer">打造让人上瘾的产品体验</span><span class="caret">|</span>
+      </h1>
+      <p class="hero-desc">
+        前字节 / 美团资深PM，主导过DAU过亿的核心产品迭代。
+        擅长从0到1的破局、复杂系统的梳理、用数据驱动增长——
+        把抽象的商业目标，落地为每一次点击的惊喜。
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">
+          <i class="fa-solid fa-rocket"></i> 查看作品
+        </a>
+        <a href="#contact" class="btn btn-ghost">
+          <i class="fa-regular fa-file-lines"></i> 下载简历 PDF
+        </a>
+      </div>
+      <div class="hero-meta">
+        <div class="meta-item">
+          <span class="meta-num accent">8+</span>
+          <span class="meta-label">年产品经验</span>
+        </div>
+        <div class="meta-divider"></div>
+        <div class="meta-item">
+          <span class="meta-num accent">12</span>
+          <span class="meta-label">主导从0到1产品</span>
+        </div>
+        <div class="meta-divider"></div>
+        <div class="meta-item">
+          <span class="meta-num accent">1.2亿</span>
+          <span class="meta-label">最高触达DAU</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-card reveal reveal-delay">
+      <div class="card-glass">
+        <div class="card-header">
+          <div class="dots"><i></i><i></i><i></i></div>
+          <span class="card-title">pm-siyuan · ~/portfolio</span>
+        </div>
+        <pre class="card-code"><code><span class="c-key">const</span> <span class="c-var">productManager</span> = {
+  <span class="c-prop">name</span>: <span class="c-str">'陈思远'</span>,
+  <span class="c-prop">role</span>: <span class="c-str">'Senior PM'</span>,
+  <span class="c-prop">skills</span>: [
+    <span class="c-str">'AI产品设计'</span>,
+    <span class="c-str">'商业化增长'</span>,
+    <span class="c-str">'0→1破局'</span>,
+  ],
+  <span class="c-prop">motto</span>:
+    <span class="c-str">"把复杂留给自己，把爽留给用户"</span>,
+  <span class="c-prop">status</span>: <span class="c-num">open_to_challenge</span> ✨
+};</code></pre>
+      </div>
+    </div>
+  </div>
+  <a href="#about" class="scroll-hint">
+    <span>向下滚动</span>
+    <i class="fa-solid fa-chevron-down"></i>
+  </a>
+</section>
+
+<!-- ========== 2. About 关于我 + 时间轴 ========== -->
+<section class="section" id="about" data-section="1">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="eyebrow">01 · ABOUT</p>
+      <h2 class="section-title">我是谁 — <span class="accent">把产品能力，产品化</span></h2>
+      <p class="section-sub">
+        八年产品生涯，我最喜欢的不是"做出功能"，而是"找到需求的真问题"。
+      </p>
+    </header>
+
+    <div class="about-grid">
+      <div class="about-left reveal">
+        <div class="avatar-wrap">
+          <div class="avatar-ring"></div>
+          <img class="avatar" alt="头像" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" />
+          <div class="avatar-badge">
+            <i class="fa-solid fa-brain"></i> AI × PM
+          </div>
+        </div>
+        <div class="about-text">
+          <h3>陈思远 <span class="tag">Senior Product Manager</span></h3>
+          <p>
+            本科毕业于清华大学经管学院，硕士香港科技大学商业分析方向。
+            从美团到字节，我主导过本地生活、短视频、AI应用三条赛道的核心产品线。
+            相信"好的产品是做减法"，也相信"每一次的Aha Moment都是可以被设计的"。
+          </p>
+          <ul class="value-list">
+            <li><i class="fa-solid fa-lightbulb accent"></i> <span>洞察先行：用数据和用户访谈，找到北极星指标</span></li>
+            <li><i class="fa-solid fa-compass-drafting accent"></i> <span>结构化拆解：复杂问题拆成可落地的迭代节奏</span></li>
+            <li><i class="fa-solid fa-chart-line accent"></i> <span>增长闭环：假设 → 实验 → 复盘 → 规模化</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="about-right reveal reveal-delay">
+        <h3 class="timeline-title">
+          <i class="fa-solid fa-timeline accent"></i> 职业经历时间轴
+        </h3>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-top">
+                <span class="tl-date">2023 — 至今</span>
+                <span class="tl-company"><i class="fa-solid fa-building"></i> 某头部AI公司</span>
+              </div>
+              <h4>高级产品经理 · AI应用产品线</h4>
+              <p>主导 C 端 AI 助理产品从 0 到 1，上线 6 个月获 500w+ 用户，次留从 32% 优化至 48%。</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-top">
+                <span class="tl-date">2020 — 2023</span>
+                <span class="tl-company"><i class="fa-solid fa-building"></i> 字节跳动</span>
+              </div>
+              <h4>产品经理 · 短视频增长</h4>
+              <p>负责抖音推荐分发链路优化，通过冷启动策略和互动产品改版，核心DAU提升 18%。</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-top">
+                <span class="tl-date">2017 — 2020</span>
+                <span class="tl-company"><i class="fa-solid fa-building"></i> 美团点评</span>
+              </div>
+              <h4>产品经理 · 到店业务</h4>
+              <p>主导商家端 SaaS 迭代，服务 200w+ 商户；设计营销工具包带动商家GMV +35%。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 3. Skills 技能打分表 ========== -->
+<section class="section" id="skills" data-section="2">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="eyebrow">02 · SKILLS</p>
+      <h2 class="section-title">技能矩阵 — <span class="accent">从战略到执行的全栈能力</span></h2>
+      <p class="section-sub">Hover 格子查看分值，0-10 分自我评估（经过 3 任老板和 12 位同事的交叉验证 😄）。</p>
+    </header>
+
+    <div class="skills-wrap reveal">
+      <div class="skill-row">
+        <div class="skill-name">需求洞察 & 用户研究</div>
+        <div class="skill-bar" data-score="9">
+          <div class="cells"></div>
+          <span class="skill-tip">9 / 10</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">产品规划 & 路线图</div>
+        <div class="skill-bar" data-score="9">
+          <div class="cells"></div>
+          <span class="skill-tip">9 / 10</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">AI 产品设计（LLM / Agent）</div>
+        <div class="skill-bar" data-score="8">
+          <div class="cells"></div>
+          <span class="skill-tip">8 / 10</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">数据驱动 & AB实验</div>
+        <div class="skill-bar" data-score="9">
+          <div class="cells"></div>
+          <span class="skill-tip">9 / 10</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">商业化 / 变现策略</div>
+        <div class="skill-bar" data-score="8">
+          <div class="cells"></div>
+          <span class="skill-tip">8 / 10</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">跨团队协作 & 推动</div>
+        <div class="skill-bar" data-score="9">
+          <div class="cells"></div>
+          <span class="skill-tip">9 / 10</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">前端 / SQL / 数据分析</div>
+        <div class="skill-bar" data-score="7">
+          <div class="cells"></div>
+          <span class="skill-tip">7 / 10</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">设计审美 & 交互理解</div>
+        <div class="skill-bar" data-score="8">
+          <div class="cells"></div>
+          <span class="skill-tip">8 / 10</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 4. Projects 作品集 ========== -->
+<section class="section" id="projects" data-section="3">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="eyebrow">03 · PROJECTS</p>
+      <h2 class="section-title">代表作品 — <span class="accent">把想法变成千万人用的产品</span></h2>
+      <p class="section-sub">点击卡片跳转到项目详情（占位：可替换为你的 Case Study 链接）。</p>
+    </header>
+
+    <div class="project-filters reveal">
+      <button class="filter active" data-filter="all">全部</button>
+      <button class="filter" data-filter="ai">AI 产品</button>
+      <button class="filter" data-filter="growth">增长 & 商业化</button>
+      <button class="filter" data-filter="saas">SaaS & B端</button>
+    </div>
+
+    <div class="projects-grid">
+      <a href="#" class="project-card reveal" data-cat="ai">
+        <div class="project-cover cover-1">
+          <div class="project-tag"><i class="fa-solid fa-bolt"></i> AI 产品</div>
+        </div>
+        <div class="project-body">
+          <h3>智能助理「阿黛」</h3>
+          <p>从 0 到 1 主导 C 端 AI 助理产品：人设系统、记忆机制、多轮对话编排。上线 6 个月 500w+ 用户。</p>
+          <div class="project-meta">
+            <span><i class="fa-solid fa-users"></i> 500万用户</span>
+            <span><i class="fa-solid fa-arrow-up"></i> 次留 48%</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="project-card reveal reveal-delay" data-cat="growth">
+        <div class="project-cover cover-2">
+          <div class="project-tag"><i class="fa-solid fa-chart-simple"></i> 增长</div>
+        </div>
+        <div class="project-body">
+          <h3>抖音冷启动分发策略</h3>
+          <p>重新设计新用户的内容消费路径与推荐冷启，实验后 7 日留存 +12%，核心 DAU 提升 18%。</p>
+          <div class="project-meta">
+            <span><i class="fa-solid fa-arrow-trend-up"></i> DAU +18%</span>
+            <span><i class="fa-solid fa-fire"></i> 7留 +12%</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="project-card reveal" data-cat="saas">
+        <div class="project-cover cover-3">
+          <div class="project-tag"><i class="fa-solid fa-server"></i> SaaS</div>
+        </div>
+        <div class="project-body">
+          <h3>商家营销工具包 Pro</h3>
+          <p>面向 200w+ 本地生活商户，设计订阅制营销工具：优惠券+拼团+达人分销三合一。GMV +35%。</p>
+          <div class="project-meta">
+            <span><i class="fa-solid fa-dollar-sign"></i> GMV +35%</span>
+            <span><i class="fa-solid fa-user-tie"></i> 付费率 22%</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="project-card reveal reveal-delay" data-cat="ai">
+        <div class="project-cover cover-4">
+          <div class="project-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> AI 内容</div>
+        </div>
+        <div class="project-body">
+          <h3>AIGC 创作工作台</h3>
+          <p>为企业内容团队打造的 AI 写作+作图工作台，集成 6 个大模型路由，效率提升 3 倍，续约率 85%。</p>
+          <div class="project-meta">
+            <span><i class="fa-solid fa-bolt"></i> 效率×3</span>
+            <span><i class="fa-solid fa-handshake"></i> 续约 85%</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 5. Blog 博客 + 搜索 ========== -->
+<section class="section" id="blog" data-section="4">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="eyebrow">04 · WRITING</p>
+      <h2 class="section-title">写过的一些思考 — <span class="accent">记录就是最好的复盘</span></h2>
+      <p class="section-sub">可跳转公众号文章 / 知乎 / 即刻（均为占位，你直接替换链接即可）。</p>
+    </header>
+
+    <div class="blog-controls reveal">
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="blogSearch" placeholder="搜索文章标题或标签…例如"AI"、"产品思考"" />
+      </div>
+      <div class="blog-tags">
+        <span class="chip">#AI产品</span>
+        <span class="chip">#用户研究</span>
+        <span class="chip">#增长</span>
+        <span class="chip">#0→1</span>
+      </div>
+    </div>
+
+    <div class="blog-grid" id="blogGrid">
+      <a href="#" class="blog-card" data-tags="AI产品,0→1" data-title="给AI产品经理的5条避坑指南：我做砸过的3个LLM产品复盘">
+        <div class="blog-cover bc-1"></div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>2025.06.18</span><span>· 12 分钟阅读</span></div>
+          <h3>给 AI 产品经理的 5 条避坑指南</h3>
+          <p>大模型的能力边界到底怎么把握？从 3 个做砸的 LLM 产品里，我总结出 PM 最容易犯的 5 个错误…</p>
+          <span class="blog-more">查看全文 <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <a href="#" class="blog-card" data-tags="用户研究,产品思考" data-title="用户访谈的「伪需求」识别术：我如何在访谈里发现用户真正在想什么">
+        <div class="blog-cover bc-2"></div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>2025.04.02</span><span>· 9 分钟阅读</span></div>
+          <h3>用户访谈的「伪需求」识别术</h3>
+          <p>用户说的话有一半是"假的"。如何用追问+行为观察，挖到他真正不愿意说出口的痛点…</p>
+          <span class="blog-more">查看全文 <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <a href="#" class="blog-card" data-tags="增长,商业化" data-title="一个AB实验让我损失了200万：聊聊数据驱动的「反常识」陷阱">
+        <div class="blog-cover bc-3"></div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>2024.11.27</span><span>· 15 分钟阅读</span></div>
+          <h3>一个 AB 实验让我损失了 200 万</h3>
+          <p>显著性、新奇效应、指标选择…一个"数据显著"的实验上线后，次月 ARPU 掉了 8%，复盘全过程。</p>
+          <span class="blog-more">查看全文 <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <a href="#" class="blog-card" data-tags="0→1,产品思考" data-title="从0到1做产品的第一性原理：不是"堆功能"，而是"找钉子"">
+        <div class="blog-cover bc-4"></div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>2024.08.09</span><span>· 10 分钟阅读</span></div>
+          <h3>从 0 到 1 做产品的第一性原理</h3>
+          <p>不是功能越多越厉害，而是你能不能在用户的心智里钉下一颗"非你不可"的钉子。方法分享。</p>
+          <span class="blog-more">查看全文 <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </a>
+    </div>
+    <div class="blog-empty" id="blogEmpty" hidden>
+      <i class="fa-regular fa-face-frown"></i>
+      <p>没有找到匹配的文章～试试换个关键词</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 6. Contact 联系 ========== -->
+<section class="section" id="contact" data-section="5">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="eyebrow">05 · CONTACT</p>
+      <h2 class="section-title">让我们聊聊 — <span class="accent">合作 · 顾问 · 咖啡</span></h2>
+      <p class="section-sub">无论是一个有趣的 idea，还是一个紧急的岗位机会，我都乐意回复。</p>
+    </header>
+
+    <div class="contact-wrap">
+      <div class="contact-left reveal">
+        <div class="contact-big-card">
+          <div class="cbc-head">
+            <div class="cbc-avatar">陈</div>
+            <div>
+              <h3>陈思远</h3>
+              <p>高级产品经理 · 开放机会中</p>
+            </div>
+          </div>
+          <ul class="cbc-list">
+            <li>
+              <i class="fa-solid fa-envelope accent"></i>
+              <div>
+                <span class="cbc-label">邮箱</span>
+                <a href="mailto:siyuan.chen@example.com">siyuan.chen@example.com</a>
+              </div>
+            </li>
+            <li>
+              <i class="fa-brands fa-github accent"></i>
+              <div>
+                <span class="cbc-label">GitHub</span>
+                <a href="#" target="_blank">github.com/siyuan-chen</a>
+              </div>
+            </li>
+            <li>
+              <i class="fa-brands fa-bilibili accent"></i>
+              <div>
+                <span class="cbc-label">B 站（产品思考分享）</span>
+                <a href="#" target="_blank">space.bilibili.com/xxxxxx</a>
+              </div>
+            </li>
+            <li>
+              <i class="fa-brands fa-weixin accent"></i>
+              <div>
+                <span class="cbc-label">公众号</span>
+                <span>产品经理陈思远</span>
+              </div>
+            </li>
+          </ul>
+          <div class="cbc-cta">
+            <a href="mailto:siyuan.chen@example.com" class="btn btn-primary">
+              <i class="fa-solid fa-paper-plane"></i> 立即发邮件
+            </a>
+            <span class="cbc-hint">24 小时内回复率 98%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-right reveal reveal-delay">
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('占位：你可以直接给我发邮件 siy uan.chen@example.com，或接入表单接口。');">
+          <h3><i class="fa-regular fa-comment-dots accent"></i> 给我留个言</h3>
+          <label>
+            <span>你的称呼</span>
+            <input type="text" placeholder="例如：招聘方 · 王先生" required />
+          </label>
+          <label>
+            <span>邮箱 / 微信</span>
+            <input type="text" placeholder="方便我回你～" required />
+          </label>
+          <label>
+            <span>主题</span>
+            <input type="text" placeholder="合作 / 岗位机会 / 其他" />
+          </label>
+          <label>
+            <span>内容</span>
+            <textarea rows="5" placeholder="简单描述一下，不用写太长～" required></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary w-full">
+            <i class="fa-solid fa-paper-plane-top"></i> 发送留言
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span>© 2026 陈思远 · Built with ❤ + AI · 参考 v0.dev + Xuan酱教程搭建</span>
+    <span class="footer-right">
+      <a href="#home"><i class="fa-solid fa-arrow-up"></i> 回到顶部</a>
+    </span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
