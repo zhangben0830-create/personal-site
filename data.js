@@ -2,6 +2,15 @@
    个人站数据层 —— 全站唯一内容源
    改内容只动这个文件：项目 / 时间轴 / 技能 / 联系方式
    内容口径：简历级聚合数据，不含具体客户名称与内部文档
+
+   字段约定（渲染层依赖，改错不报错但显示会错）：
+   · projects[].status      只能是 'done'（已上线运营）或 'ongoing'（进行中）
+   · skills[].items[].level 只能是 0-10 的整数（页面按 10 格渲染）
+   · about.values[].icon    填 Font Awesome 6 免费图标类名（fontawesome.com/icons）
+   · profile.stats 与 projects[0].results 指标同源，更新时两处同步
+
+   改完如何自检：保存后刷新页面；若整页空白，按 F12 看 Console 红字定位行号，
+   或命令行执行 node --check data.js（无输出即语法正确）
    ============================================================ */
 
 const SITE_DATA = {
@@ -146,3 +155,7 @@ const SITE_DATA = {
   ],
 
 };
+
+/* 显式挂到全局对象：渲染层（script.js）以 window.SITE_DATA 读取。
+   注意：const 顶层声明只进全局词法环境，不会自动成为 window 的属性。 */
+window.SITE_DATA = SITE_DATA;
