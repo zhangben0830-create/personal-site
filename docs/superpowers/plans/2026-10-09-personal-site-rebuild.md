@@ -1024,6 +1024,10 @@ git commit -m "feat: 五板块数据驱动改造——真实履历替换虚构�
 
 - [ ] **Step 4: 删除联系表单样式（原 595-616 行：`.contact-form` 及其全部子规则）**
 
+- [ ] **Step 4.5: 清理 960px 媒体查询中的死引用（Task 3 质量审查发现）**
+
+style.css 约 648 行的 `@media (max-width: 960px)` 块内存在 `.projects-grid, .blog-grid{ grid-template-columns: 1fr; }`——两个类已随 Task 3 的 HTML 重写消失。删除该条规则（若同查询块内其他规则仍被引用则保留）。注意：Task 3 修复提交已将 style.css 第 2 行头注释改为「张犇」，行号可能整体偏移，删除前先 Read 确认边界。
+
 - [ ] **Step 5: 验证无残留引用**
 
 Run: `Select-String -Path 'd:\Trae空间\projects\personal-site\index.html','d:\Trae空间\projects\personal-site\script.js' -Pattern 'project-card|blog-|blogSearch|contact-form|cover-1|\.filter'`
@@ -1048,12 +1052,12 @@ git commit -m "chore: 清理博客/表单/旧项目卡的死样式"
 
 - [ ] **Step 1: 虚构清零扫描（验收标准 #2）**
 
-Run: `Select-String -Path 'd:\Trae空间\projects\personal-site\index.html','d:\Trae空间\projects\personal-site\script.js','d:\Trae空间\projects\personal-site\data.js' -Pattern '陈思远|字节|美团|DAU|siyuan|阿黛'`
+Run: `Select-String -Path 'd:\Trae空间\projects\personal-site\index.html','d:\Trae空间\projects\personal-site\script.js','d:\Trae空间\projects\personal-site\data.js','d:\Trae空间\projects\personal-site\style.css' -Pattern '陈思远|字节|美团|DAU|siyuan|阿黛'`
 Expected: 无匹配
 
 - [ ] **Step 2: 脱敏红线扫描（验收标准 #3，设计文档 §6）**
 
-Run: `Select-String -Path 'd:\Trae空间\projects\personal-site\index.html','d:\Trae空间\projects\personal-site\script.js','d:\Trae空间\projects\personal-site\data.js' -Pattern '信达|北京银行|河北资产|长城资管|光大银行|粤财|浙商资产|农行|工猫'`
+Run: `Select-String -Path 'd:\Trae空间\projects\personal-site\index.html','d:\Trae空间\projects\personal-site\script.js','d:\Trae空间\projects\personal-site\data.js','d:\Trae空间\projects\personal-site\style.css' -Pattern '信达|北京银行|河北资产|长城资管|光大银行|粤财|浙商资产|农行|工猫'`
 Expected: 无匹配
 
 - [ ] **Step 3: 交互回归（验收标准 #4，用 webapp-testing 技能 Playwright）**
@@ -1123,3 +1127,5 @@ Expected: 日志含全部任务提交，工作区干净（`git status` 无未提
 ## 变更记录（执行中修订）
 
 - **2026-10-10 · Task 2 修订（commit `b93ea6f`）**：质量审查发现计划缺陷——`const SITE_DATA` 顶层声明不挂 `window`，与 Task 3 script.js 的 `window.SITE_DATA || {}` 读取方式构成契约断裂（落地即整站静默空白）。修订：data.js 末尾追加 `window.SITE_DATA = SITE_DATA;` 显式挂载，头部注释补充字段约定（status 枚举 / level 0-10 / icon 类名来源 / stats 与 results 同源）与自检指引。本文件 Task 2 的 Step 1 代码块以 `b93ea6f` 版实际文件为准（数据主体逐字不变）。
+
+- **2026-10-10 · Task 3 审查修订**：质量审查（含运行时复现）发现：① initCopy 双击后按钮状态永久卡死（old 捕获时机错误）；② style.css 第 2 行头注释残留「陈思远」、960px 媒体查询残留死引用 `.projects-grid, .blog-grid`，且原计划的清理与扫描范围均未覆盖 style.css——已修订 Task 4（新增 Step 4.5）与 Task 5（Step 1/2 扫描路径加入 style.css）。代码修复（复制按钮根治 + level 0-10 钳制 + heroCode 数据化 + aria-label + 断点注释）见后续修复提交。
