@@ -8,21 +8,19 @@
 
 :root{
   --bg:        #05070d;
-  --bg-soft:   #0b1020;
   --surface:   rgba(18, 24, 45, 0.55);
-  --surface-2: rgba(30, 40, 70, 0.45);
   --border:    rgba(120, 160, 220, 0.18);
   --text:      #e6ecf7;
   --text-dim:  #8ea0c4;
   --accent:    #22d3ee;       /* 荧光青 */
   --accent-2:  #a855f7;       /* 紫 */
-  --accent-w:  #ffffff;
   --radius:    18px;
-  --radius-sm: 12px;
   --shadow:    0 10px 40px rgba(10, 10, 30, 0.55);
   --glow:      0 0 40px rgba(34, 211, 238, 0.35);
   --container: 1200px;
   --nav-h:     72px;
+  /* 注意：--accent 的透明度变体（如 rgba(34,211,238,.4)）在全文件以硬编码形式使用约 25 处，
+     换主题色时需同步修改本处与这些硬编码位置 */
 }
 
 html { scroll-behavior: smooth; }
@@ -152,7 +150,6 @@ body{
   border: 1px solid var(--border);
 }
 .btn-ghost:hover{ background: rgba(255,255,255,.08); transform: translateY(-2px); }
-.w-full{ width: 100%; justify-content: center; }
 
 /* ---------- Section Head ---------- */
 .section-head{ text-align: center; margin-bottom: 72px; }
@@ -393,7 +390,7 @@ body{
 .skill-bar:hover .skill-tip{ color: var(--accent); }
 
 /* ============================================================
-   6. CONTACT
+   4. CONTACT
    ============================================================ */
 .contact-wrap{
   display: grid; grid-template-columns: 1fr 1fr; gap: 36px;
@@ -478,7 +475,7 @@ body{
 }
 
 /* ============================================================
-   7. 数据驱动新增样式（2026-10 重建）
+   5. 数据驱动新增样式（2026-10 重建）
    ============================================================ */
 
 /* —— About：头像字模 / 时间轴阶段 / 副线卡片 —— */
