@@ -20,6 +20,7 @@
   /* 1. Hero */
   function renderHero() {
     const p = D.profile || {};
+    if ($("#brandName")) $("#brandName").textContent = p.nameEn || "";
     if ($("#heroKicker")) $("#heroKicker").textContent = p.kicker || "";
     if ($("#heroName")) $("#heroName").textContent = p.name || "";
     if ($("#heroDesc")) $("#heroDesc").textContent = p.intro || "";
@@ -60,6 +61,8 @@ ${(p.focus || []).map(f => `    <span class="c-str">'${esc(f)}'</span>,`).join("
     const a = D.about || {}, p = D.profile || {};
     if ($("#aboutName")) $("#aboutName").textContent = p.name || "";
     if ($("#aboutNarrative")) $("#aboutNarrative").textContent = a.narrative || "";
+    const mono = $("#avatarMono");
+    if (mono) mono.textContent = p.avatarChar || "";
 
     const values = $("#aboutValues");
     if (values && a.values) {
@@ -158,6 +161,9 @@ ${(p.focus || []).map(f => `    <span class="c-str">'${esc(f)}'</span>,`).join("
     const p = D.profile || {};
     if ($("#cbcName")) $("#cbcName").textContent = p.name || "";
     if ($("#cbcRole")) $("#cbcRole").textContent = `${p.title || ""} · 开放机会中`;
+    const av = $("#cbcAvatar");
+    if (av) av.textContent = p.avatarChar || "";
+    if ($("#footerName")) $("#footerName").textContent = p.name || "";
     if ($("#cbcMail")) { $("#cbcMail").href = `mailto:${p.email}`; $("#cbcMail").textContent = p.email || ""; }
     if ($("#cbcLocation")) $("#cbcLocation").textContent = p.location || "";
     if ($("#mailCta")) $("#mailCta").href = `mailto:${p.email}`;

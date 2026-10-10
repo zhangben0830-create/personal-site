@@ -17,6 +17,8 @@ const SITE_DATA = {
 
   profile: {
     name: '张犇',
+    nameEn: 'ZHANG · BEN',
+    avatarChar: '犇',
     title: '高级产品经理',
     roleEn: 'Senior Product Manager',
     focus: ['B端SaaS', '大数据风控', 'AI产品化'],
