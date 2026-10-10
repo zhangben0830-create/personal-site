@@ -18,6 +18,8 @@ const SITE_DATA = {
   profile: {
     name: '张犇',
     title: '高级产品经理',
+    roleEn: 'Senior Product Manager',
+    focus: ['B端SaaS', '大数据风控', 'AI产品化'],
     kicker: '高级产品经理 · 14年经验',
     intro: '14 年产品生涯，从金融业务一线走到数据风控，再到 B端SaaS 平台操盘。擅长把复杂业务抽象成简单产品——把 100+ 家金融机构的清收难题，做成了细分市场占有率第一的平台。',
     motto: '先懂业务，再做产品',

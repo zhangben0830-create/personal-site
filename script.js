@@ -39,11 +39,9 @@
       code.innerHTML =
 `<span class="c-key">const</span> <span class="c-var">productManager</span> = {
   <span class="c-prop">name</span>: <span class="c-str">'${esc(p.name)}'</span>,
-  <span class="c-prop">role</span>: <span class="c-str">'Senior Product Manager'</span>,
+  <span class="c-prop">role</span>: <span class="c-str">'${esc(p.roleEn || "Senior Product Manager")}'</span>,
   <span class="c-prop">focus</span>: [
-    <span class="c-str">'B端SaaS'</span>,
-    <span class="c-str">'大数据风控'</span>,
-    <span class="c-str">'AI产品化'</span>,
+${(p.focus || []).map(f => `    <span class="c-str">'${esc(f)}'</span>,`).join("\n")}
   ],
   <span class="c-prop">motto</span>: <span class="c-str">"${esc(p.motto)}"</span>,
   <span class="c-prop">status</span>: <span class="c-num">open_to_opportunity</span> ✨
@@ -112,14 +110,17 @@
     wrap.innerHTML = D.skills.map(g => `
       <div class="skill-group">
         <h4 class="skill-group-title">${esc(g.category)}</h4>
-        ${g.items.map(it => `
+        ${g.items.map(it => {
+          const lv = Math.min(10, Math.max(0, Number(it.level) || 0));
+          return `
         <div class="skill-row">
           <div class="skill-name">${esc(it.name)}<span class="skill-note">${esc(it.note)}</span></div>
-          <div class="skill-bar" data-score="${it.level}">
+          <div class="skill-bar" data-score="${lv}">
             <div class="cells"></div>
-            <span class="skill-tip">${it.level} / 10</span>
+            <span class="skill-tip">${lv} / 10</span>
           </div>
-        </div>`).join("")}
+        </div>`;
+        }).join("")}
       </div>`).join("");
   }
 
@@ -271,6 +272,8 @@
   /* 10. 邮箱一键复制（clipboard API + 降级方案） */
   function initCopy() {
     $$(".copy-btn").forEach(btn => {
+      const original = btn.innerHTML;   // 绑定时固化原始内容，避免重复点击时捕获错误状态
+      let timer = null;
       btn.addEventListener("click", async () => {
         const text = btn.dataset.copy || "";
         if (!text) return;
@@ -284,9 +287,12 @@
         }
         if (ok) {
           btn.classList.add("copied");
-          const old = btn.innerHTML;
           btn.innerHTML = '<i class="fa-solid fa-check"></i> 已复制';
-          setTimeout(() => { btn.classList.remove("copied"); btn.innerHTML = old; }, 1600);
+          clearTimeout(timer);
+          timer = setTimeout(() => {
+            btn.classList.remove("copied");
+            btn.innerHTML = original;
+          }, 1600);
         }
       });
     });

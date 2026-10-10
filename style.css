@@ -1,5 +1,5 @@
 /* ============================================================
-   陈思远 · 高级产品经理 个人站
+   张犇 · 高级产品经理 个人站
    风格：深色科技感 · 荧光青 accent · 先锋感 + 动效
    ============================================================ */
 
@@ -763,7 +763,7 @@ body{
 .copy-btn:hover{ color: var(--accent); border-color: rgba(34,211,238,.4); }
 .copy-btn.copied{ color: #34d399; border-color: rgba(52,211,153,.4); }
 
-/* —— 响应式补充 —— */
+/* —— 响应式补充（960px 管布局塌缩 / 768px 管卡片密度）—— */
 @media (max-width: 768px){
   .project-detail{ padding: 22px 18px; }
   .pd-result{ min-width: 100px; }
