@@ -100,7 +100,7 @@ const SITE_DATA = {
       category: 'AI 能力',
       items: [
         { name: 'AI 产品化',       level: 8, note: 'AI估值对话流与提示词体系从0到1' },
-        { name: 'RAG 知识库应用',  level: 8, note: '双通道检索、五级知识库、可溯源输出' },
+        { name: 'AI 知识库应用',  level: 8, note: '双通道检索、五级知识库、可溯源输出' },
         { name: 'AI 工具链',       level: 8, note: 'Dify 工作流、Trae 开发、v0 建站' },
       ],
     },
@@ -142,7 +142,7 @@ const SITE_DATA = {
       period: '2026.04 - 至今',
       role: '产品经理',
       status: 'ongoing',
-      tags: ['AI产品', 'RAG', '合规科技', 'G端'],
+      tags: ['AI产品', '智能体', '合规科技', 'G端'],
       background: '国企合规管理要求「事前防控」，但合规依据分散在国家法规、央企意见、省级办法、集团办法、公司办法五级制度体系中，人工审查耗时长、易遗漏。',
       highlights: [
         { title: '五级知识库',   desc: '合规文档自动切片、元数据打标，构建统一知识底座' },
