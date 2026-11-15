@@ -48,12 +48,6 @@ ${(p.focus || []).map(f => `    <span class="c-str">'${esc(f)}'</span>,`).join("
   <span class="c-prop">status</span>: <span class="c-num">open_to_opportunity</span> ✨
 };`;
     }
-
-    const btn = $("#resumeBtn");
-    if (btn) {
-      btn.href = p.resumeFile || "#";
-      btn.setAttribute("download", p.resumeDownloadName || "resume.pdf");
-    }
   }
 
   /* 2. About + 时间轴 + 副线卡片 */
@@ -164,14 +158,10 @@ ${(p.focus || []).map(f => `    <span class="c-str">'${esc(f)}'</span>,`).join("
     const av = $("#cbcAvatar");
     if (av) av.textContent = p.avatarChar || "";
     if ($("#footerName")) $("#footerName").textContent = p.name || "";
-    if ($("#cbcMail")) { $("#cbcMail").href = `mailto:${p.email}`; $("#cbcMail").textContent = p.email || ""; }
+    if ($("#cbcMail")) $("#cbcMail").textContent = p.email || "";
     if ($("#cbcLocation")) $("#cbcLocation").textContent = p.location || "";
-    if ($("#mailCta")) $("#mailCta").href = `mailto:${p.email}`;
     const copy = $("#copyEmail");
     if (copy) copy.dataset.copy = p.email || "";
-    [$("#cbcResume"), $("#resumeBtn2")].forEach(a => {
-      if (a) { a.href = p.resumeFile || "#"; a.setAttribute("download", p.resumeDownloadName || "resume.pdf"); }
-    });
     if ($("#footerYear")) $("#footerYear").textContent = String(new Date().getFullYear());
   }
 

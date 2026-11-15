@@ -144,13 +144,6 @@ body{
 @keyframes btnShine{ 0%,100%{background-position:0% 50%;} 50%{background-position:100% 50%;} }
 .btn-primary:hover{ transform: translateY(-2px); box-shadow: var(--glow); }
 
-.btn-ghost{
-  color: var(--text);
-  background: rgba(255,255,255,.04);
-  border: 1px solid var(--border);
-}
-.btn-ghost:hover{ background: rgba(255,255,255,.08); transform: translateY(-2px); }
-
 /* ---------- Section Head ---------- */
 .section-head{ text-align: center; margin-bottom: 72px; }
 .eyebrow{
@@ -393,8 +386,7 @@ body{
    4. CONTACT
    ============================================================ */
 .contact-wrap{
-  display: grid; grid-template-columns: 1fr 1fr; gap: 36px;
-  max-width: 1000px; margin: 0 auto;
+  max-width: 680px; margin: 0 auto;
 }
 .contact-big-card{
   padding: 36px;
@@ -420,7 +412,7 @@ body{
 }
 .cbc-head h3{ font-size: 22px; }
 .cbc-head p{ color: var(--text-dim); font-size: 14px; }
-.cbc-list{ list-style: none; display: grid; gap: 18px; position: relative; margin-bottom: 28px; }
+.cbc-list{ list-style: none; display: grid; gap: 18px; position: relative; }
 .cbc-list li{ display: flex; gap: 14px; align-items: center; }
 .cbc-list i{
   width: 40px; height: 40px; border-radius: 12px;
@@ -429,13 +421,7 @@ body{
   font-size: 16px;
 }
 .cbc-label{ font-size: 12px; color: var(--text-dim); display: block; }
-.cbc-list a, .cbc-list span{
-  color: var(--text); font-size: 15px; text-decoration: none;
-  transition: color .2s;
-}
-.cbc-list a:hover{ color: var(--accent); }
-.cbc-cta{ display: flex; align-items: center; gap: 16px; flex-wrap: wrap; position: relative; }
-.cbc-hint{ font-size: 12px; color: var(--text-dim); }
+.cbc-list span{ color: var(--text); font-size: 15px; }
 
 /* ---------- Footer ---------- */
 .footer{
@@ -466,7 +452,7 @@ body{
    ============================================================ */
 @media (max-width: 960px){
   .section{ padding: 90px 0; }
-  .hero-inner, .about-grid, .contact-wrap{ grid-template-columns: 1fr; gap: 40px; }
+  .hero-inner, .about-grid{ grid-template-columns: 1fr; gap: 40px; }
   .skill-row{ grid-template-columns: 1fr; gap: 10px; }
   .nav-links{ display: none; }
   .hero-meta{ gap: 16px; padding: 16px; }
@@ -565,17 +551,7 @@ body{
 .pd-result .label{ font-size: 12px; color: var(--text-dim); }
 .pd-honors{ font-size: 13px; color: var(--text-dim); }
 
-/* —— Contact：简历卡 / 复制按钮 —— */
-.resume-card{
-  padding: 36px; border: 1px solid var(--border); border-radius: 28px;
-  background: var(--surface); backdrop-filter: blur(14px);
-  text-align: center; display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 12px; height: 100%;
-}
-.resume-card > i{ font-size: 44px; color: var(--accent); }
-.resume-card h3{ font-size: 20px; }
-.resume-card p{ color: var(--text-dim); font-size: 14px; }
-.rc-hint{ font-size: 12px; color: var(--text-dim); }
+/* —— Contact：复制按钮 —— */
 .copy-btn{
   margin-left: 10px; padding: 4px 10px; border-radius: 8px;
   border: 1px solid var(--border); background: rgba(255,255,255,.04);

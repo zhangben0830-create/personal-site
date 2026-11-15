@@ -272,3 +272,4 @@ const SITE_DATA = {
 2. **§5.1 文件表**：`README.md` 标注「不动」，实际按实施计划 Task 5 重写（按计划执行，此处更正）。
 3. **§4 数据层草图**：`nameEn` 字段初版裁剪，最终以 `nameEn` + `avatarChar` 形式落地（见合并前收尾提交）；页脚名称复用 `profile.name`。
 4. **新增**：favicon.svg（审查发现真实浏览器会请求 /favicon.ico）。
+5. **联系区简化（2026-11-15，上线 GitHub Pages 前）**：按使用者要求移除「立即发邮件」（`mailto` 按钮）与「下载简历」两个入口，只保留邮箱地址（可一键复制）与期望城市。同步移除 `data.js` 的 `resumeFile` / `resumeDownloadName` 字段与 Hero 的简历按钮；`assets/resume.pdf` 仍保留在仓库，仅作为邮件附件使用。验收项 7（简历下载）随之不再适用。

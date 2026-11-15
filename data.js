@@ -27,8 +27,6 @@ const SITE_DATA = {
     motto: '先懂业务，再做产品',
     email: '415730168@qq.com',
     location: '杭州',
-    resumeFile: 'assets/resume.pdf',
-    resumeDownloadName: '张犇-高级产品经理-简历.pdf',
     typerPhrases: [
       'B端SaaS 旗舰产品操盘手',
       '不良资产大数据专家',

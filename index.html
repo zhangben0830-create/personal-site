@@ -53,9 +53,6 @@
         <a href="#projects" class="btn btn-primary">
           <i class="fa-solid fa-rocket"></i> 查看作品
         </a>
-        <a id="resumeBtn" class="btn btn-ghost" href="#">
-          <i class="fa-regular fa-file-lines"></i> 下载简历
-        </a>
       </div>
       <div class="hero-meta" id="heroStats"></div>
     </div>
@@ -147,56 +144,31 @@
     </header>
 
     <div class="contact-wrap">
-      <div class="contact-left reveal">
-        <div class="contact-big-card">
-          <div class="cbc-head">
-            <div class="cbc-avatar" id="cbcAvatar">犇</div>
+      <div class="contact-big-card reveal">
+        <div class="cbc-head">
+          <div class="cbc-avatar" id="cbcAvatar">犇</div>
+          <div>
+            <h3 id="cbcName"></h3>
+            <p id="cbcRole"></p>
+          </div>
+        </div>
+        <ul class="cbc-list">
+          <li>
+            <i class="fa-solid fa-envelope accent"></i>
             <div>
-              <h3 id="cbcName"></h3>
-              <p id="cbcRole"></p>
+              <span class="cbc-label">邮箱</span>
+              <span id="cbcMail"></span>
+              <button class="copy-btn" id="copyEmail" data-copy="" title="复制邮箱" aria-label="复制邮箱"><i class="fa-regular fa-copy"></i></button>
             </div>
-          </div>
-          <ul class="cbc-list">
-            <li>
-              <i class="fa-solid fa-envelope accent"></i>
-              <div>
-                <span class="cbc-label">邮箱</span>
-                <a id="cbcMail" href="#"></a>
-                <button class="copy-btn" id="copyEmail" data-copy="" title="复制邮箱" aria-label="复制邮箱"><i class="fa-regular fa-copy"></i></button>
-              </div>
-            </li>
-            <li>
-              <i class="fa-solid fa-location-dot accent"></i>
-              <div>
-                <span class="cbc-label">期望城市</span>
-                <span id="cbcLocation"></span>
-              </div>
-            </li>
-            <li>
-              <i class="fa-regular fa-file-lines accent"></i>
-              <div>
-                <span class="cbc-label">简历</span>
-                <a id="cbcResume" href="#">下载 PDF（含完整履历与联系方式）</a>
-              </div>
-            </li>
-          </ul>
-          <div class="cbc-cta">
-            <a id="mailCta" href="#" class="btn btn-primary">
-              <i class="fa-solid fa-paper-plane"></i> 立即发邮件
-            </a>
-            <span class="cbc-hint">工作日 24 小时内回复</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="contact-right reveal reveal-delay">
-        <div class="resume-card">
-          <i class="fa-regular fa-file-lines"></i>
-          <h3>下载简历</h3>
-          <p>完整履历（含项目细节与联系方式），PDF 格式</p>
-          <a id="resumeBtn2" class="btn btn-primary" href="#">下载 PDF</a>
-          <span class="rc-hint">文件将保存为「张犇-高级产品经理-简历.pdf」</span>
-        </div>
+          </li>
+          <li>
+            <i class="fa-solid fa-location-dot accent"></i>
+            <div>
+              <span class="cbc-label">期望城市</span>
+              <span id="cbcLocation"></span>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
