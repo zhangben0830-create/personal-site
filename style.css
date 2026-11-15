@@ -1,5 +1,5 @@
 /* ============================================================
-   陈思远 · 高级产品经理 个人站
+   张犇 · 高级产品经理 个人站
    风格：深色科技感 · 荧光青 accent · 先锋感 + 动效
    ============================================================ */
 
@@ -8,21 +8,19 @@
 
 :root{
   --bg:        #05070d;
-  --bg-soft:   #0b1020;
   --surface:   rgba(18, 24, 45, 0.55);
-  --surface-2: rgba(30, 40, 70, 0.45);
   --border:    rgba(120, 160, 220, 0.18);
   --text:      #e6ecf7;
   --text-dim:  #8ea0c4;
   --accent:    #22d3ee;       /* 荧光青 */
   --accent-2:  #a855f7;       /* 紫 */
-  --accent-w:  #ffffff;
   --radius:    18px;
-  --radius-sm: 12px;
   --shadow:    0 10px 40px rgba(10, 10, 30, 0.55);
   --glow:      0 0 40px rgba(34, 211, 238, 0.35);
   --container: 1200px;
   --nav-h:     72px;
+  /* 注意：--accent 的透明度变体（如 rgba(34,211,238,.4)）在全文件以硬编码形式使用约 20 处，
+     换主题色时需同步修改本处与这些硬编码位置 */
 }
 
 html { scroll-behavior: smooth; }
@@ -152,7 +150,6 @@ body{
   border: 1px solid var(--border);
 }
 .btn-ghost:hover{ background: rgba(255,255,255,.08); transform: translateY(-2px); }
-.w-full{ width: 100%; justify-content: center; }
 
 /* ---------- Section Head ---------- */
 .section-head{ text-align: center; margin-bottom: 72px; }
@@ -393,159 +390,7 @@ body{
 .skill-bar:hover .skill-tip{ color: var(--accent); }
 
 /* ============================================================
-   4. PROJECTS
-   ============================================================ */
-.project-filters{
-  display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 44px;
-}
-.filter{
-  padding: 10px 20px; border-radius: 999px;
-  background: rgba(255,255,255,.03);
-  border: 1px solid var(--border);
-  color: var(--text-dim); font-size: 14px; cursor: pointer;
-  transition: all .2s;
-}
-.filter:hover{ color: var(--text); border-color: rgba(34,211,238,.4); }
-.filter.active{
-  color: #03131a; background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  border-color: transparent; font-weight: 600;
-}
-
-.projects-grid{
-  display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px;
-}
-.project-card{
-  display: block; position: relative;
-  border: 1px solid var(--border); border-radius: 24px;
-  background: var(--surface); backdrop-filter: blur(10px);
-  overflow: hidden; text-decoration: none; color: var(--text);
-  transition: all .4s cubic-bezier(.2,.8,.2,1);
-}
-.project-card:hover{
-  transform: translateY(-8px);
-  border-color: rgba(34,211,238,.5);
-  box-shadow: var(--shadow), 0 0 60px rgba(34,211,238,.18);
-}
-.project-cover{
-  position: relative; height: 200px;
-  background-size: cover; background-position: center;
-}
-.project-cover::after{
-  content:""; position: absolute; inset: 0;
-  background: linear-gradient(180deg, transparent 30%, rgba(5,7,13,.85));
-}
-.project-tag{
-  position: absolute; top: 14px; left: 14px; z-index: 2;
-  padding: 6px 12px; border-radius: 999px;
-  background: rgba(5,7,13,.75); backdrop-filter: blur(6px);
-  border: 1px solid rgba(34,211,238,.4);
-  color: var(--accent); font-size: 12px; font-weight: 600;
-  display: inline-flex; align-items: center; gap: 6px;
-}
-.cover-1{ background-image: linear-gradient(135deg, rgba(34,211,238,.35), rgba(168,85,247,.4)),
-                           url("https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=70");}
-.cover-2{ background-image: linear-gradient(135deg, rgba(251,191,36,.35), rgba(34,211,238,.3)),
-                           url("https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=70");}
-.cover-3{ background-image: linear-gradient(135deg, rgba(168,85,247,.35), rgba(239,68,68,.3)),
-                           url("https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=70");}
-.cover-4{ background-image: linear-gradient(135deg, rgba(34,211,238,.35), rgba(52,211,153,.3)),
-                           url("https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=70");}
-
-.project-body{ padding: 24px 26px 28px; }
-.project-body h3{ font-size: 20px; font-weight: 700; margin-bottom: 10px; }
-.project-body p{ color: var(--text-dim); font-size: 14.5px; margin-bottom: 16px; }
-.project-meta{
-  display: flex; gap: 14px; flex-wrap: wrap;
-  font-size: 13px; color: var(--text-dim);
-}
-.project-meta span{
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 4px 10px; border-radius: 8px;
-  background: rgba(255,255,255,.04);
-}
-.project-meta i{ color: var(--accent); }
-
-/* 过滤隐藏 */
-.project-card.hidden{ display: none; }
-
-/* ============================================================
-   5. BLOG + SEARCH
-   ============================================================ */
-.blog-controls{
-  display: flex; justify-content: space-between; align-items: center;
-  flex-wrap: wrap; gap: 20px;
-  max-width: 900px; margin: 0 auto 44px;
-}
-.search-box{
-  position: relative; flex: 1; min-width: 260px;
-}
-.search-box i{
-  position: absolute; left: 18px; top: 50%; transform: translateY(-50%);
-  color: var(--text-dim);
-}
-.search-box input{
-  width: 100%;
-  padding: 14px 18px 14px 46px;
-  border-radius: 14px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--text);
-  font-size: 15px;
-  font-family: inherit;
-  transition: border-color .2s, box-shadow .2s;
-}
-.search-box input:focus{
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(34,211,238,.15);
-}
-.blog-tags{ display: flex; gap: 8px; flex-wrap: wrap; }
-.chip{
-  padding: 6px 12px; border-radius: 999px;
-  background: rgba(34,211,238,.06);
-  color: var(--accent); font-size: 12px; font-weight: 500;
-  border: 1px solid rgba(34,211,238,.2);
-  cursor: pointer; transition: all .2s;
-}
-.chip:hover{ background: rgba(34,211,238,.14); }
-
-.blog-grid{
-  display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
-}
-.blog-card{
-  display: block; text-decoration: none; color: var(--text);
-  border: 1px solid var(--border); border-radius: 20px;
-  background: var(--surface); backdrop-filter: blur(8px);
-  overflow: hidden; transition: all .35s cubic-bezier(.2,.8,.2,1);
-}
-.blog-card:hover{ transform: translateY(-6px); border-color: rgba(34,211,238,.4); box-shadow: var(--shadow); }
-.blog-card.hidden{ display: none; }
-.blog-cover{ height: 150px; background-size: cover; background-position: center; }
-.bc-1{ background-image: linear-gradient(135deg, rgba(168,85,247,.35), rgba(34,211,238,.3)), url("https://images.unsplash.com/photo-1655720828018-edd2daec9349?auto=format&fit=crop&w=600&q=60");}
-.bc-2{ background-image: linear-gradient(135deg, rgba(34,211,238,.3), rgba(52,211,153,.3)), url("https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=600&q=60");}
-.bc-3{ background-image: linear-gradient(135deg, rgba(251,191,36,.35), rgba(239,68,68,.3)), url("https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&w=600&q=60");}
-.bc-4{ background-image: linear-gradient(135deg, rgba(239,68,68,.3), rgba(168,85,247,.3)), url("https://images.unsplash.com/photo-1503551723145-6c040742065b?auto=format&fit=crop&w=600&q=60");}
-
-.blog-body{ padding: 22px 24px 26px; }
-.blog-meta{ font-size: 12px; color: var(--text-dim); display: flex; gap: 6px; margin-bottom: 10px; }
-.blog-body h3{ font-size: 18px; font-weight: 700; line-height: 1.45; margin-bottom: 10px; }
-.blog-body p{ font-size: 14px; color: var(--text-dim); margin-bottom: 14px;
-  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
-}
-.blog-more{
-  font-size: 13px; color: var(--accent);
-  display: inline-flex; align-items: center; gap: 6px;
-  transition: gap .2s;
-}
-.blog-card:hover .blog-more{ gap: 12px; }
-
-.blog-empty{
-  text-align: center; padding: 60px 20px; color: var(--text-dim);
-}
-.blog-empty i{ font-size: 38px; margin-bottom: 12px; opacity: .5; }
-
-/* ============================================================
-   6. CONTACT
+   4. CONTACT
    ============================================================ */
 .contact-wrap{
   display: grid; grid-template-columns: 1fr 1fr; gap: 36px;
@@ -592,29 +437,6 @@ body{
 .cbc-cta{ display: flex; align-items: center; gap: 16px; flex-wrap: wrap; position: relative; }
 .cbc-hint{ font-size: 12px; color: var(--text-dim); }
 
-.contact-form{
-  padding: 32px;
-  border: 1px solid var(--border); border-radius: 28px;
-  background: var(--surface); backdrop-filter: blur(14px);
-  display: grid; gap: 16px;
-}
-.contact-form h3{ font-size: 18px; margin-bottom: 6px; display: inline-flex; align-items: center; gap: 10px;}
-.contact-form label{ display: grid; gap: 6px; }
-.contact-form label > span{ font-size: 13px; color: var(--text-dim); }
-.contact-form input, .contact-form textarea{
-  padding: 12px 14px; border-radius: 12px;
-  background: rgba(255,255,255,.03);
-  border: 1px solid var(--border);
-  color: var(--text);
-  font-family: inherit; font-size: 14.5px;
-  transition: border-color .2s, box-shadow .2s;
-  resize: vertical;
-}
-.contact-form input:focus, .contact-form textarea:focus{
-  outline: none; border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(34,211,238,.12);
-}
-
 /* ---------- Footer ---------- */
 .footer{
   padding: 32px 0;
@@ -645,10 +467,126 @@ body{
 @media (max-width: 960px){
   .section{ padding: 90px 0; }
   .hero-inner, .about-grid, .contact-wrap{ grid-template-columns: 1fr; gap: 40px; }
-  .projects-grid, .blog-grid{ grid-template-columns: 1fr; }
   .skill-row{ grid-template-columns: 1fr; gap: 10px; }
   .nav-links{ display: none; }
   .hero-meta{ gap: 16px; padding: 16px; }
   .meta-divider{ display: none; }
   .scroll-hint{ display: none; }
+}
+
+/* ============================================================
+   5. 数据驱动新增样式（2026-10 重建）
+   ============================================================ */
+
+/* —— About：头像字模 / 时间轴阶段 / 副线卡片 —— */
+.avatar-mono{
+  display: flex; align-items: center; justify-content: center;
+  font-size: 60px; font-weight: 800;
+  background: linear-gradient(135deg, rgba(34,211,238,.15), rgba(168,85,247,.15));
+  color: var(--accent);
+}
+.tl-stage{
+  margin-top: 10px; font-size: 12.5px; color: var(--accent);
+  display: flex; align-items: center; gap: 6px;
+}
+.tl-stage i{ font-size: 11px; }
+.about-side-cards{ margin-top: 26px; display: grid; gap: 14px; }
+.side-card{
+  padding: 16px 18px; border: 1px solid var(--border); border-radius: 16px;
+  background: var(--surface);
+}
+.side-card h4{
+  font-size: 13px; color: var(--accent); margin-bottom: 8px;
+  display: flex; gap: 8px; align-items: center;
+}
+.side-card p, .side-card li{ font-size: 13.5px; color: var(--text-dim); }
+.side-card ul{ list-style: none; display: grid; gap: 4px; }
+
+/* —— Skills：分组标题 / 注解 —— */
+.skill-group{ margin-bottom: 28px; }
+.skill-group-title{
+  font-size: 15px; color: var(--text); margin-bottom: 14px;
+  display: flex; align-items: center; gap: 12px;
+}
+.skill-group-title::after{ content: ""; flex: 1; height: 1px; background: var(--border); }
+.skill-note{ display: block; font-size: 12px; color: var(--text-dim); margin-top: 3px; }
+
+/* —— Projects：深度项目卡 —— */
+.project-detail{
+  border: 1px solid var(--border); border-radius: 24px;
+  background: var(--surface); backdrop-filter: blur(10px);
+  padding: 30px 32px; margin: 0 auto 28px; max-width: 920px;
+  transition: all .4s cubic-bezier(.2,.8,.2,1);
+}
+.project-detail:hover{
+  border-color: rgba(34,211,238,.5);
+  box-shadow: var(--shadow), 0 0 60px rgba(34,211,238,.12);
+}
+.pd-head{
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 16px; flex-wrap: wrap; margin-bottom: 14px;
+}
+.pd-head h3{ font-size: 22px; }
+.pd-period{
+  display: flex; align-items: center; gap: 6px;
+  color: var(--text-dim); font-size: 13px; margin-top: 6px;
+}
+.pd-role{ display: block; color: var(--accent); font-size: 13px; margin-top: 4px; }
+.pd-badge{
+  padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 600;
+  border: 1px solid rgba(52,211,153,.4); color: #34d399;
+  background: rgba(52,211,153,.08); white-space: nowrap;
+}
+.pd-badge.ongoing{
+  border-color: rgba(251,191,36,.4); color: #fbbf24; background: rgba(251,191,36,.08);
+}
+.pd-tags{ display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+.pd-tags span{
+  padding: 5px 12px; border-radius: 8px; font-size: 12px;
+  color: var(--text-dim); background: rgba(255,255,255,.04);
+  border: 1px solid var(--border);
+}
+.pd-background{ color: var(--text-dim); font-size: 14.5px; margin-bottom: 18px; line-height: 1.7; }
+.pd-background b{ color: var(--text); }
+.pd-highlights{ display: grid; gap: 12px; margin-bottom: 20px; }
+.pd-h{
+  padding: 14px 16px; border-radius: 14px;
+  background: rgba(255,255,255,.03); border: 1px solid var(--border);
+}
+.pd-h b{ font-size: 14px; color: var(--text); display: block; margin-bottom: 4px; }
+.pd-h p{ font-size: 13.5px; color: var(--text-dim); line-height: 1.65; }
+.pd-results{ display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 12px; }
+.pd-result{
+  flex: 1; min-width: 130px; text-align: center; padding: 14px 10px;
+  border-radius: 14px; border: 1px solid var(--border);
+  background: linear-gradient(135deg, rgba(34,211,238,.08), rgba(168,85,247,.08));
+}
+.pd-result .num{ display: block; font-size: 22px; font-weight: 800; color: var(--accent); }
+.pd-result .label{ font-size: 12px; color: var(--text-dim); }
+.pd-honors{ font-size: 13px; color: var(--text-dim); }
+
+/* —— Contact：简历卡 / 复制按钮 —— */
+.resume-card{
+  padding: 36px; border: 1px solid var(--border); border-radius: 28px;
+  background: var(--surface); backdrop-filter: blur(14px);
+  text-align: center; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 12px; height: 100%;
+}
+.resume-card > i{ font-size: 44px; color: var(--accent); }
+.resume-card h3{ font-size: 20px; }
+.resume-card p{ color: var(--text-dim); font-size: 14px; }
+.rc-hint{ font-size: 12px; color: var(--text-dim); }
+.copy-btn{
+  margin-left: 10px; padding: 4px 10px; border-radius: 8px;
+  border: 1px solid var(--border); background: rgba(255,255,255,.04);
+  color: var(--text-dim); font-size: 12px; cursor: pointer; transition: all .2s;
+}
+.copy-btn:hover{ color: var(--accent); border-color: rgba(34,211,238,.4); }
+.copy-btn.copied{ color: #34d399; border-color: rgba(52,211,153,.4); }
+
+/* —— 响应式补充（960px 管布局塌缩 / 768px 管卡片密度）—— */
+@media (max-width: 768px){
+  .project-detail{ padding: 22px 18px; }
+  .pd-result{ min-width: 100px; }
+  .pd-head h3{ font-size: 19px; }
 }
